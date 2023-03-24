@@ -26,3 +26,20 @@ const Player = (name, symbol) => {
 
   return { getName, getSymbol };
 };
+
+function renderBoard() {
+  const gameboard = Gameboard.getBoard();
+  const boardContainer = document.querySelector('#board-container');
+
+  let html = '';
+  for (let i = 0; i < gameboard.length; i++) {
+    html += `<div class="cell">${gameboard[i]}</div>`;
+    if ((i + 1) % 3 === 0) {
+      html += '<br>';
+    }
+  }
+
+  boardContainer.innerHTML = html;
+}
+
+renderBoard();
